@@ -9,17 +9,16 @@
 
                 request.onload = function (e) {
                     console.log(request.responseText);
+
+                    setTimeout(function(){
+                      logar();
+                    },1000);
                 };
 
                 request.send(null);
             };
 
             logar();
-
-            setInterval(function() {
-                logar();
-            }, 1000);
-
         </script>
     </body>
 </html>
