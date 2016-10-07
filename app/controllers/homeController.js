@@ -3,18 +3,16 @@ HomeController = function() {
 };
 
 HomeController.prototype.index = function(request, response) {
-    this.logar(function() {
-        response.end('Logs gravados no ELK');
-    });
+    response.render('home/index');
 };
 
-HomeController.prototype.logar = function(cb) {
+HomeController.prototype.logar = function(request, response) {
    console.log('Gravando logs no ELK...');
 
-   this.log.info('Testando o log no ELK %s', new Date());
+   var line = 'Testando o log no ELK' + new Date();
+   this.log.info(line);
 
-   if(cb)
-    cb();
+   response.end(line);
 };
 
 module.exports = new HomeController();

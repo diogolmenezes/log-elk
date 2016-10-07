@@ -1,0 +1,25 @@
+<html>
+    <body>
+        <h1>Teste</h1>
+
+        <script>
+            function logar() {
+                var request = new XMLHttpRequest();
+                request.open('GET', '/logar');
+
+                request.onload = function (e) {
+                    console.log(request.responseText);
+                };
+
+                request.send(null);
+            };
+
+            logar();
+
+            setInterval(function() {
+                logar();
+            }, 1000);
+
+        </script>
+    </body>
+</html>
